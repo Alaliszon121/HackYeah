@@ -1,6 +1,5 @@
 using Cinemachine;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class DspTimeSpawner : MonoBehaviour
@@ -8,20 +7,35 @@ public class DspTimeSpawner : MonoBehaviour
     [System.Serializable]
     public struct TimedSpawn
     {
-        public CinemachineDollyCart prefab;
+        public CinemachineDollyCart prefab;  // prefab asset (used only for instantiation)
         public double spawnTime;
         public CinemachineSmoothPath path;
         public int laneIndex;
+
         [HideInInspector] public bool judged;
+        [HideInInspector] public CinemachineDollyCart instance; // runtime clone
     }
 
     [Header("Spawn Data")]
     public List<TimedSpawn> spawns = new List<TimedSpawn>();
 
+    [Header("Timing Settings")]
+    public double initialOffset = 0.0; // first note offset in seconds
+    public double interval = 2.33333333333333; // time between consecutive notes
+
     private int currentIndex = 0;
 
     private void Start()
     {
+        // Automatically assign spawnTime based on offset + i * interval
+        for (int i = 0; i < spawns.Count; i++)
+        {
+            var spawn = spawns[i];
+            spawn.spawnTime = initialOffset + i * interval;
+            spawns[i] = spawn;
+        }
+
+        // Instantiate clones and store instance references
         while (currentIndex < spawns.Count)
         {
             TimedSpawn spawn = spawns[currentIndex];
@@ -33,10 +47,13 @@ public class DspTimeSpawner : MonoBehaviour
                 continue;
             }
 
-            spawn.prefab.m_Path = spawn.path;
-            spawn.prefab.m_Position = (float)spawn.spawnTime / 2f;
+            var clone = Instantiate(spawn.prefab, Vector3.zero, Quaternion.identity);
+            clone.m_Path = spawn.path;
+            clone.m_Position = (float)spawn.spawnTime / 2f;
 
-            Instantiate(spawn.prefab, Vector3.zero, Quaternion.identity);
+            spawn.instance = clone;
+            spawns[currentIndex] = spawn;
+
             currentIndex++;
         }
     }

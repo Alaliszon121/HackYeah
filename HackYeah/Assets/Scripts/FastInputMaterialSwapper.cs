@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static DspTimeSpawner;
 
 public class FastInputMaterialSwapper : MonoBehaviour
 {
@@ -23,20 +24,32 @@ public class FastInputMaterialSwapper : MonoBehaviour
     [Header("Spawner Reference")]
     public DspTimeSpawner spawner; // assign in inspector (reads spawner.spawns)
 
+    [Header("Particles")]
+    public ParticleSystem hitParticle;
+    public ParticleSystem missParticle;
+    public ParticleSystem perfectParticle;
+
+    [Header("Audio Feedback")]
+    public AudioSource pitchShiftSource;
+    public float missPitch = 0.5f;
+    public float missPitchDuration = 0.5f;
+
+    // Events for external scripts to hook into
+    public event Action<TimedSpawn> OnMiss;
+    public event Action<TimedSpawn> OnHit;
+
     // internals
     private double dspStartTime;
     private bool[] pressedThisFrame = new bool[4]; // lanes 0..3
 
     private void Awake()
     {
-        // prepare input actions (callbacks only set a flag; actual judgement happens in Update)
         controls = new GameInputActions();
         controls.Player.PlayA.performed += ctx => OnButtonPress(0);
         controls.Player.PlayB.performed += ctx => OnButtonPress(1);
         controls.Player.PlayC.performed += ctx => OnButtonPress(2);
         controls.Player.PlayD.performed += ctx => OnButtonPress(3);
 
-        // store original materials (so we can restore)
         originalMaterials = new Material[targetRenderers.Length];
         for (int i = 0; i < targetRenderers.Length; i++)
             originalMaterials[i] = targetRenderers[i].material;
@@ -47,7 +60,6 @@ public class FastInputMaterialSwapper : MonoBehaviour
 
     private void Start()
     {
-        // count time from the start of the scene (DSP)
         dspStartTime = AudioSettings.dspTime;
     }
 
@@ -55,21 +67,17 @@ public class FastInputMaterialSwapper : MonoBehaviour
     {
         double elapsed = AudioSettings.dspTime - dspStartTime;
 
-        // Process any input that arrived since last frame (we set flags in callbacks)
         for (int lane = 0; lane < pressedThisFrame.Length; lane++)
         {
             if (!pressedThisFrame[lane]) continue;
-            pressedThisFrame[lane] = false; // consume
+            pressedThisFrame[lane] = false;
 
-            // visual feedback
             if (lane < targetRenderers.Length)
                 StartCoroutine(SwapMaterialTemporary(lane));
 
-            // judge the press for this lane
             HandleLaneInput(lane, elapsed);
         }
 
-        // Each frame: auto-miss any note that's expired (player did not hit it within goodWindow)
         AutoMissExpiredNotes(elapsed);
     }
 
@@ -87,9 +95,9 @@ public class FastInputMaterialSwapper : MonoBehaviour
             return;
         }
 
-        // Find closest unjudged note in this lane (by absolute time difference)
         int bestIndex = -1;
         double bestAbsDelta = double.MaxValue;
+        bool hasUpcomingNote = false;
 
         for (int i = 0; i < spawner.spawns.Count; i++)
         {
@@ -97,8 +105,12 @@ public class FastInputMaterialSwapper : MonoBehaviour
             if (note.judged) continue;
             if (note.laneIndex != lane) continue;
 
-            double delta = elapsed - note.spawnTime; // signed: negative = early, positive = late
+            double delta = elapsed - note.spawnTime;
             double absDelta = Math.Abs(delta);
+
+            // check if there’s a note within 1.5s ahead
+            if (note.spawnTime >= elapsed && note.spawnTime <= elapsed + 0.8f)
+                hasUpcomingNote = true;
 
             if (absDelta < bestAbsDelta)
             {
@@ -107,14 +119,20 @@ public class FastInputMaterialSwapper : MonoBehaviour
             }
         }
 
-        // If no candidate note found -> immediate miss (no notes on this lane)
-        if (bestIndex == -1)
+        // 🛑 NEW: if no note is close AND no upcoming note within 1.5s, ignore this input
+        if (bestIndex == -1 && !hasUpcomingNote)
         {
-            Debug.Log($"MISS (no note) on lane {lane} at t={elapsed:F3}s");
+            Debug.Log($"Ignored tap on lane {lane} at t={elapsed:F3}s (no notes within 1.5s)");
             return;
         }
 
-        // Judge the closest note
+        // If no candidate note found -> don't consume anything
+        if (bestIndex == -1)
+        {
+            Debug.Log($"Tap on lane {lane} at t={elapsed:F3}s but no note close enough to judge.");
+            return;
+        }
+
         var closestNote = spawner.spawns[bestIndex];
         double deltaTime = elapsed - closestNote.spawnTime;
         double absDeltaTime = Math.Abs(deltaTime);
@@ -122,43 +140,100 @@ public class FastInputMaterialSwapper : MonoBehaviour
         if (absDeltaTime <= perfectWindow)
         {
             Debug.Log($"PERFECT on lane {lane} Δ={deltaTime:F3}s (t={elapsed:F3}s)");
-            closestNote.judged = true;
-            spawner.spawns[bestIndex] = closestNote;
+            JudgeHitAtIndex(bestIndex, isPerfect: true);
             return;
         }
 
         if (absDeltaTime <= goodWindow)
         {
             Debug.Log($"GOOD on lane {lane} Δ={deltaTime:F3}s (t={elapsed:F3}s)");
-            closestNote.judged = true;
-            spawner.spawns[bestIndex] = closestNote;
+            JudgeHitAtIndex(bestIndex, isPerfect: false);
             return;
         }
 
-        // NOT within windows -> declare miss (per your specification)
-        // This consumes the closest note (marks it judged as missed).
         Debug.Log($"MISS (off-timed) on lane {lane} Δ={deltaTime:F3}s (t={elapsed:F3}s)");
-        closestNote.judged = true;
-        spawner.spawns[bestIndex] = closestNote;
+        JudgeMissAtIndex(bestIndex);
     }
 
     private void AutoMissExpiredNotes(double elapsed)
     {
         if (spawner == null) return;
 
-        for (int i = 0; i < spawner.spawns.Count; i++)
+        // iterate backwards so we can safely remove consumed spawns
+        for (int i = spawner.spawns.Count - 1; i >= 0; i--)
         {
             var note = spawner.spawns[i];
             if (note.judged) continue;
 
-            // if current time passed the note's spawnTime + goodWindow -> auto-miss
             if (elapsed > note.spawnTime + goodWindow)
             {
-                note.judged = true;
-                spawner.spawns[i] = note;
                 Debug.Log($"MISS (expired) on lane {note.laneIndex} Δ={(elapsed - note.spawnTime):F3}s (t={elapsed:F3}s)");
+                JudgeMissAtIndex(i);
             }
         }
+    }
+
+    // new: judge by index so we can remove the spawn from the list immediately
+    private void JudgeHitAtIndex(int index, bool isPerfect)
+    {
+        if (spawner == null) return;
+        if (index < 0 || index >= spawner.spawns.Count) return;
+
+        var note = spawner.spawns[index];
+        if (note.judged) return; // guard
+
+        note.judged = true;
+
+        Vector3 pos = note.prefab != null ? note.instance.gameObject.transform.position : Vector3.zero;
+
+        if (hitParticle != null)
+            Instantiate(hitParticle, pos, Quaternion.identity).Play();
+
+        if (isPerfect && perfectParticle != null)
+            Instantiate(perfectParticle, pos, Quaternion.identity).Play();
+
+        if (note.prefab != null)
+            Destroy(note.instance.gameObject);
+
+        OnHit?.Invoke(note);
+
+        // remove consumed spawn so it won't be processed again
+        spawner.spawns.RemoveAt(index);
+    }
+
+    private void JudgeMissAtIndex(int index)
+    {
+        if (spawner == null) return;
+        if (index < 0 || index >= spawner.spawns.Count) return;
+
+        var note = spawner.spawns[index];
+        if (note.judged) return; // guard
+
+        note.judged = true;
+
+        Vector3 pos = note.prefab != null ? note.instance.gameObject.transform.position : Vector3.zero;
+
+        if (missParticle != null)
+            Instantiate(missParticle, pos, Quaternion.identity).Play();
+
+        if (pitchShiftSource != null)
+            StartCoroutine(TemporaryPitchShift());
+
+        if (note.prefab != null)
+            Destroy(note.instance.gameObject);
+
+        OnMiss?.Invoke(note);
+
+        // remove consumed spawn so it won't be processed again
+        spawner.spawns.RemoveAt(index);
+    }
+
+    private IEnumerator TemporaryPitchShift()
+    {
+        float originalPitch = pitchShiftSource.pitch;
+        pitchShiftSource.pitch = missPitch;
+        yield return new WaitForSeconds(missPitchDuration);
+        pitchShiftSource.pitch = originalPitch;
     }
 
     private IEnumerator SwapMaterialTemporary(int index)
