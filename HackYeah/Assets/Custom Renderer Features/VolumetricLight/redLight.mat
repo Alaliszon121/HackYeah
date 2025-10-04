@@ -47,8 +47,8 @@ Material:
     m_Ints: []
     m_Floats:
     - Boolean_52C16ADA: 0
-    - Vector1_C436030E: 0.23
-    - Vector1_D9BD7578: 0.2
+    - Vector1_C436030E: 0.01
+    - Vector1_D9BD7578: 1.13
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
