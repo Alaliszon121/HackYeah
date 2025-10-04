@@ -19,23 +19,10 @@ public class DspTimeSpawner : MonoBehaviour
     [Header("Spawn Data")]
     public List<TimedSpawn> spawns = new List<TimedSpawn>();
 
-    [Header("Timing Settings")]
-    public double initialOffset = 0.0; // first note offset in seconds
-    public double interval = 2.33333333333333; // time between consecutive notes
-
     private int currentIndex = 0;
 
     private void Start()
     {
-        // Automatically assign spawnTime based on offset + i * interval
-        for (int i = 0; i < spawns.Count; i++)
-        {
-            var spawn = spawns[i];
-            spawn.spawnTime = initialOffset + i * interval;
-            spawns[i] = spawn;
-        }
-
-        // Instantiate clones and store instance references
         while (currentIndex < spawns.Count)
         {
             TimedSpawn spawn = spawns[currentIndex];
@@ -47,13 +34,15 @@ public class DspTimeSpawner : MonoBehaviour
                 continue;
             }
 
+            // Instantiate the prefab -> runtime instance
             var clone = Instantiate(spawn.prefab, Vector3.zero, Quaternion.identity);
             clone.m_Path = spawn.path;
             clone.m_Position = (float)spawn.spawnTime / 2f;
 
+            // store reference to the instance so we can destroy it later
             spawn.instance = clone;
-            spawns[currentIndex] = spawn;
 
+            spawns[currentIndex] = spawn; // update list entry
             currentIndex++;
         }
     }
