@@ -1837,56 +1837,56 @@ MonoBehaviour:
     instance: {fileID: 0}
   - prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    spawnTime: 23
+    spawnTime: 3.003
     path: {fileID: 537762543}
     laneIndex: 3
     judged: 0
     instance: {fileID: 0}
   - prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    spawnTime: 23
+    spawnTime: 3.432
     path: {fileID: 537762543}
     laneIndex: 3
     judged: 0
     instance: {fileID: 0}
   - prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    spawnTime: 23
+    spawnTime: 3.432
     path: {fileID: 537762543}
     laneIndex: 3
     judged: 0
     instance: {fileID: 0}
   - prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    spawnTime: 23
+    spawnTime: 3.861
     path: {fileID: 537762543}
     laneIndex: 3
     judged: 0
     instance: {fileID: 0}
   - prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    spawnTime: 23
+    spawnTime: 4.29
     path: {fileID: 537762543}
     laneIndex: 3
     judged: 0
     instance: {fileID: 0}
   - prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    spawnTime: 23
+    spawnTime: 4.719
     path: {fileID: 537762543}
     laneIndex: 3
     judged: 0
     instance: {fileID: 0}
   - prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    spawnTime: 23
+    spawnTime: 5.148
     path: {fileID: 537762543}
     laneIndex: 3
     judged: 0
     instance: {fileID: 0}
   - prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    spawnTime: 23
+    spawnTime: 5.148
     path: {fileID: 537762543}
     laneIndex: 3
     judged: 0
