@@ -1,0 +1,407 @@
+{
+    "dialogs": [
+        {
+            "id": "Absolutely! Give me the good stuff!",
+            "speaker": "",
+            "text": "Absolutely! Give me the good stuff!",
+            "nextId": "Absolutely! Give me the good stuff!_line1",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Absolutely! Give me the good stuff!_line1",
+            "speaker": "Pawblo Escobar",
+            "text": "Seems like you're not as smart as you look.",
+            "nextId": "Absolutely! Give me the good stuff!_line2",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Absolutely! Give me the good stuff!_line2",
+            "speaker": "Pawblo Escobar",
+            "text": "The Meowdellin Clawtel would have no use for you.",
+            "nextId": "Absolutely! Give me the good stuff!_line3",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Absolutely! Give me the good stuff!_line3",
+            "speaker": "Pawblo Escobar",
+            "text": "Now that's all sorted out, send me through one of these fancy doors, will you?",
+            "nextId": "Absolutely! Give me the good stuff!_branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Absolutely! Give me the good stuff!_branch",
+            "speaker": "",
+            "text": "Now that's all sorted out, send me through one of these fancy doors, will you?",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "Send to Pawradise",
+                    "nextId": "Send to Pawradise",
+                    "callback": ""
+                },
+                {
+                    "text": "Send to Infurno",
+                    "nextId": "Send to Infurno",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "Eep! On second thought, I think I’ll paw-ss…",
+            "speaker": "",
+            "text": "Eep! On second thought, I think I’ll paw-ss…",
+            "nextId": "Eep! On second thought, I think I’ll paw-ss…_line1",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Eep! On second thought, I think I’ll paw-ss…_line1",
+            "speaker": "Pawblo Escobar",
+            "text": "Your loss, kid.",
+            "nextId": "Eep! On second thought, I think I’ll paw-ss…_line2",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Eep! On second thought, I think I’ll paw-ss…_line2",
+            "speaker": "Pawblo Escobar",
+            "text": "Just remember, the cats of always aren't interested in the kittens of never.",
+            "nextId": "Eep! On second thought, I think I’ll paw-ss…_branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Eep! On second thought, I think I’ll paw-ss…_branch",
+            "speaker": "",
+            "text": "Just remember, the cats of always aren't interested in the kittens of never.",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "Send to Pawradise",
+                    "nextId": "Send to Pawradise",
+                    "callback": ""
+                },
+                {
+                    "text": "Send to Infurno",
+                    "nextId": "Send to Infurno",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "How did you manage to smuggle catnip in here?!",
+            "speaker": "",
+            "text": "How did you manage to smuggle catnip in here?!",
+            "nextId": "How did you manage to smuggle catnip in here?!_line1",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "How did you manage to smuggle catnip in here?!_line1",
+            "speaker": "Pawblo Escobar",
+            "text": "Now, are you interested in a little bit of the good old //Nepeta cataria// or not?",
+            "nextId": "How did you manage to smuggle catnip in here?!_branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "How did you manage to smuggle catnip in here?!_branch",
+            "speaker": "",
+            "text": "Now, are you interested in a little bit of the good old //Nepeta cataria// or not?",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…",
+                    "nextId": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…",
+                    "callback": ""
+                },
+                {
+                    "text": "Absolutely! Give me the good stuff!",
+                    "nextId": "Absolutely! Give me the good stuff!",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…",
+            "speaker": "",
+            "text": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…",
+            "nextId": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…_line1",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…_line1",
+            "speaker": "Pawblo Escobar",
+            "text": "You know, there are 200 million orange cats manipulated by a million Abyssinian cats.",
+            "nextId": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…_line2",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…_line2",
+            "speaker": "Pawblo Escobar",
+            "text": "You look like you could be an Abyssinian.",
+            "nextId": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…_branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…_branch",
+            "speaker": "",
+            "text": "You look like you could be an Abyssinian.",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "This allegory seems to have gone a bit too far…",
+                    "nextId": "This allegory seems to have gone a bit too far…",
+                    "callback": ""
+                },
+                {
+                    "text": "World domination? Meow-tastic, sign me up!",
+                    "nextId": "World domination? Meow-tastic, sign me up!",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "Purrfect! Hope you don’t mind if I rub on it a little?",
+            "speaker": "",
+            "text": "Purrfect! Hope you don’t mind if I rub on it a little?",
+            "nextId": "Purrfect! Hope you don’t mind if I rub on it a little?_line1",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Purrfect! Hope you don’t mind if I rub on it a little?_line1",
+            "speaker": "Pawblo Escobar",
+            "text": "No rubbing on catnip during work hours.",
+            "nextId": "Purrfect! Hope you don’t mind if I rub on it a little?_line2",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Purrfect! Hope you don’t mind if I rub on it a little?_line2",
+            "speaker": "Pawblo Escobar",
+            "text": "Now that's all sorted out, send me through one of these fancy doors, will you?",
+            "nextId": "Purrfect! Hope you don’t mind if I rub on it a little?_branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Purrfect! Hope you don’t mind if I rub on it a little?_branch",
+            "speaker": "",
+            "text": "Now that's all sorted out, send me through one of these fancy doors, will you?",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "Send to Pawradise",
+                    "nextId": "Send to Pawradise",
+                    "callback": ""
+                },
+                {
+                    "text": "Send to Infurno",
+                    "nextId": "Send to Infurno",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "Sir, you left your empawire down there. You are up here.",
+            "speaker": "",
+            "text": "Sir, you left your empawire down there. You are up here.",
+            "nextId": "Sir, you left your empawire down there. You are up here._line1",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Sir, you left your empawire down there. You are up here._line1",
+            "speaker": "Pawblo Escobar",
+            "text": "This is just a simple expansion effort.",
+            "nextId": "Sir, you left your empawire down there. You are up here._line2",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Sir, you left your empawire down there. You are up here._line2",
+            "speaker": "Pawblo Escobar",
+            "text": "On second thought, looks like you're just not clawed out for this type of life.",
+            "nextId": "Sir, you left your empawire down there. You are up here._branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Sir, you left your empawire down there. You are up here._branch",
+            "speaker": "",
+            "text": "On second thought, looks like you're just not clawed out for this type of life.",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "Send to Pawradise",
+                    "nextId": "Send to Pawradise",
+                    "callback": ""
+                },
+                {
+                    "text": "Send to Infurno",
+                    "nextId": "Send to Infurno",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "This allegory seems to have gone a bit too far…",
+            "speaker": "",
+            "text": "This allegory seems to have gone a bit too far…",
+            "nextId": "This allegory seems to have gone a bit too far…_line1",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "This allegory seems to have gone a bit too far…_line1",
+            "speaker": "Pawblo Escobar",
+            "text": "Everyone has a price, the important thing is to find out what it is.",
+            "nextId": "This allegory seems to have gone a bit too far…_line2",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "This allegory seems to have gone a bit too far…_line2",
+            "speaker": "Pawblo Escobar",
+            "text": "You could join my catnip empawire.",
+            "nextId": "This allegory seems to have gone a bit too far…_branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "This allegory seems to have gone a bit too far…_branch",
+            "speaker": "",
+            "text": "You could join my catnip empawire.",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "Sir, you left your empawire down there. You are up here.",
+                    "nextId": "Sir, you left your empawire down there. You are up here.",
+                    "callback": ""
+                },
+                {
+                    "text": "How could I paw-ssibly resist nfinite paw-er and all the catnip in the world? I'm in!",
+                    "nextId": "World domination? Meow-tastic, sign me up!",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "World domination? Meow-tastic, sign me up!",
+            "speaker": "",
+            "text": "World domination? Meow-tastic, sign me up!",
+            "nextId": "World domination? Meow-tastic, sign me up!_line1",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "World domination? Meow-tastic, sign me up!_line1",
+            "speaker": "Pawblo Escobar",
+            "text": "Now hold onto that bag of catnip for me.",
+            "nextId": "World domination? Meow-tastic, sign me up!_line2",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "World domination? Meow-tastic, sign me up!_line2",
+            "speaker": "Pawblo Escobar",
+            "text": "My associate will come pick it up later.",
+            "nextId": "World domination? Meow-tastic, sign me up!_line3",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "World domination? Meow-tastic, sign me up!_line3",
+            "speaker": "Pawblo Escobar",
+            "text": "You'll know him by his most a-paw-ling sin...",
+            "nextId": "World domination? Meow-tastic, sign me up!_line4",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "World domination? Meow-tastic, sign me up!_line4",
+            "speaker": "Pawblo Escobar",
+            "text": "Gravedigging.",
+            "nextId": "World domination? Meow-tastic, sign me up!_branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "World domination? Meow-tastic, sign me up!_branch",
+            "speaker": "",
+            "text": "Gravedigging.",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "Eep! On second thought, I think I’ll paw-ss…",
+                    "nextId": "Eep! On second thought, I think I’ll paw-ss…",
+                    "callback": ""
+                },
+                {
+                    "text": "Purrfect! Hope you don’t mind if I rub on it a little?",
+                    "nextId": "Purrfect! Hope you don’t mind if I rub on it a little?",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "Pawblo Escobar",
+            "speaker": "",
+            "text": "Pawblo Escobar",
+            "nextId": "Pawblo Escobar_branch",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Pawblo Escobar_branch",
+            "speaker": "",
+            "text": "Pawblo Escobar",
+            "nextId": "",
+            "callback": "",
+            "choices": [
+                {
+                    "text": "How did you manage to smuggle catnip in here?!",
+                    "nextId": "How did you manage to smuggle catnip in here?!",
+                    "callback": ""
+                },
+                {
+                    "text": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…",
+                    "nextId": "Mom said I shouldn’t sniff any catnip, because it can turn me into an orange cat…",
+                    "callback": ""
+                }
+            ]
+        },
+        {
+            "id": "Send to Infurno",
+            "speaker": "",
+            "text": "Send to Infurno",
+            "nextId": "",
+            "callback": "",
+            "choices": []
+        },
+        {
+            "id": "Send to Pawradise",
+            "speaker": "",
+            "text": "Send to Pawradise",
+            "nextId": "",
+            "callback": "",
+            "choices": []
+        }
+    ]
+}

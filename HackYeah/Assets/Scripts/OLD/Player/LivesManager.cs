@@ -59,9 +59,9 @@ public class LivesManager : MonoBehaviour
             hurt.Play();
             //if(screenShake != null) screenShake.Shake(0.5f, 5f);
             Debug.Log("Hit by Damagable");
-            if (collision.gameObject.TryGetComponent<DissolvePlatforms>(out DissolvePlatforms dissolvable)) 
+            //if (collision.gameObject.TryGetComponent<DissolvePlatforms>(out DissolvePlatforms dissolvable)) 
             {
-                StartCoroutine(dissolvable.LerpFloat());
+                //StartCoroutine(dissolvable.LerpFloat());
             }
             if (bodyParts.Count > 0)
             {

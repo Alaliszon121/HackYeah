@@ -39,6 +39,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: 3095572235199763236}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -69,3 +70,67 @@ AudioMixerSnapshotController:
   m_FloatValues:
     7e441a21d20bfe740a663bfdec85bb5f: 0
   m_TransitionOverrides: {}
+--- !u!244 &1986600331540653921
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: f2b94480a9dffce4ba6127f8fa2c8944
+  m_EffectName: SFX Reverb
+  m_MixLevel: c966808862eb0ef49beba535c7319889
+  m_Parameters:
+  - m_ParameterName: Dry Level
+    m_GUID: 56aefb64796a4df49aa58f17c18f11e5
+  - m_ParameterName: Room
+    m_GUID: 9fe0438b38cded34d8cd2544f78a9732
+  - m_ParameterName: Room HF
+    m_GUID: 4f62bb64a5cd3a94c82c27243b488f84
+  - m_ParameterName: Decay Time
+    m_GUID: caf87b52fcb7fdc40852fc07304c5510
+  - m_ParameterName: Decay HF Ratio
+    m_GUID: 6e2de860f331c074194f9ae12f976e95
+  - m_ParameterName: Reflections
+    m_GUID: 04b5b89535691bc4e9bbcc4dcda9d3dc
+  - m_ParameterName: Reflect Delay
+    m_GUID: 06d57791cf666244f83194dc4e8fd600
+  - m_ParameterName: Reverb
+    m_GUID: 30ff63782ba95db45b237896825e55bc
+  - m_ParameterName: Reverb Delay
+    m_GUID: 0186bf7db92c3a24e8feec0f7c41618f
+  - m_ParameterName: Diffusion
+    m_GUID: 4763dd9b79f997c4583d84c04ec2ce48
+  - m_ParameterName: Density
+    m_GUID: dd5375fa17842e54293ec64bb2f36c2e
+  - m_ParameterName: HF Reference
+    m_GUID: 003da69e05d0fb446bfbb11aaf1e2dd9
+  - m_ParameterName: Room LF
+    m_GUID: 687f57d666738da4a8476e6322fd9a63
+  - m_ParameterName: LF Reference
+    m_GUID: 7069cf5b2324b304c9dca629d7ab1801
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &3095572235199763236
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 0ebf8f0197ec8b54a83acd145f0027d6
+  m_EffectName: Pitch Shifter
+  m_MixLevel: 68460d0eee1dbec41bd0b6ae3b540365
+  m_Parameters:
+  - m_ParameterName: Pitch
+    m_GUID: 39783ddef0836794f9989dbb3598de39
+  - m_ParameterName: FFT size
+    m_GUID: fa055ec837b62ad4ab7977f9e781e08e
+  - m_ParameterName: Overlap
+    m_GUID: 146b1e77dd33b114dbc4b32cf7e0b248
+  - m_ParameterName: Max channels
+    m_GUID: a6516c12a016f4c4bb7701f4fb1173ea
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
