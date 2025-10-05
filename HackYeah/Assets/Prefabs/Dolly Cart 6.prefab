@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7956339568202590863}
   - component: {fileID: 3502685149264600060}
   m_Layer: 0
-  m_Name: Dolly Cart
+  m_Name: Dolly Cart 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,9 +94,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0.4
-  m_Range: 1.5
+  m_Color: {r: 0.9169811, g: 0.57957226, b: 0.17128508, a: 1}
+  m_Intensity: 0.5
+  m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -231,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 839145261aee5094196307a35cc6050f, type: 2}
+  - {fileID: 2100000, guid: f31975b5b6b737742ae149a2cb46190b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1944,285 +1944,555 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 289109148}
-  BPM: 80
-  startOffset: 5
+  BPM: 120
+  startOffset: 15
   sounds:
-  - ID: 11cala
-    audioClip: {fileID: 8300000, guid: 56279659bae20cc499ed6db465f40a72, type: 3}
-  - ID: 11cwiartka
-    audioClip: {fileID: 8300000, guid: 37155ac78c44c8e40b665e859e3b36d4, type: 3}
-  - ID: 15cala
-    audioClip: {fileID: 8300000, guid: be3fb23b299d8284987e22936e8e6a4a, type: 3}
-  - ID: 20cwiartka
-    audioClip: {fileID: 8300000, guid: 44f1151dbb0af2f4286d2f46aa5f3c1f, type: 3}
-  - ID: 21cwiartka
-    audioClip: {fileID: 8300000, guid: 370eeb5c179293f4fb3188c90cf47391, type: 3}
-  - ID: 30cwiartka
-    audioClip: {fileID: 8300000, guid: fb8dd96c08c80044faae4936c5fde110, type: 3}
-  - ID: 31cwiartka
-    audioClip: {fileID: 8300000, guid: f2905c01f29a37641ab4fbbdced17ce7, type: 3}
-  - ID: 32cwiartka
-    audioClip: {fileID: 8300000, guid: 9cf4521796dc2b143a1e0ff3555675f7, type: 3}
-  - ID: 41cwiartka
-    audioClip: {fileID: 8300000, guid: 71cf9129df27b6944bcb9522c4253628, type: 3}
-  - ID: 42cala
-    audioClip: {fileID: 8300000, guid: 7dbcd62be2bfeb94199bbeb82e7d685a, type: 3}
-  - ID: 42cwierc
-    audioClip: {fileID: 8300000, guid: f163fa4049b164c40a7a57d2818e6b16, type: 3}
-  - ID: 43cwiartka
-    audioClip: {fileID: 8300000, guid: 43740cbdd2b83934eb5aa6d4b7e54b9b, type: 3}
-  - ID: 44cala
-    audioClip: {fileID: 8300000, guid: fdf94bb3cc055124eb6d5f23ddcf9ec8, type: 3}
-  - ID: 44cwiartka
-    audioClip: {fileID: 8300000, guid: 9d962b5707c63614aacbef1ac2440281, type: 3}
-  - ID: 45cala
-    audioClip: {fileID: 8300000, guid: b0102e6803ff0a44d86372fd936b4864, type: 3}
-  - ID: 45cwiartka
-    audioClip: {fileID: 8300000, guid: be2207afc215d404c95f45e2f0b5b28a, type: 3}
-  - ID: 51cwiartka
-    audioClip: {fileID: 8300000, guid: ecbc3ac6189ceaf48b5a7aeda4fca7d1, type: 3}
-  - ID: 52cala
-    audioClip: {fileID: 8300000, guid: eff1b57de31fa02439766ce97aac8b2e, type: 3}
-  - ID: 52cwiartka
-    audioClip: {fileID: 8300000, guid: 109752fb888287e49a25da1d7e99789b, type: 3}
-  - ID: 53cala
-    audioClip: {fileID: 8300000, guid: 732f5e86775b2804c8c247a6bf8ae339, type: 3}
-  - ID: 53cwiartka
-    audioClip: {fileID: 8300000, guid: 41d77f5965feff64ab4423fef6edcf91, type: 3}
-  - ID: 55cala
-    audioClip: {fileID: 8300000, guid: 2f496cb77a821fa40abc159cace5cadc, type: 3}
-  - ID: 55cwiartka
-    audioClip: {fileID: 8300000, guid: 359972e0230482a4196bb1a76bc9f266, type: 3}
-  - ID: 60cwiartka
-    audioClip: {fileID: 8300000, guid: 432b466d27c799d459858eeb197da632, type: 3}
-  - ID: 61cwiartka
-    audioClip: {fileID: 8300000, guid: ee93f3b2dce9dcb408d63334f09eb840, type: 3}
-  - ID: 63cala
-    audioClip: {fileID: 8300000, guid: 0dbadd0d63f4a39438b6af5f67732fb3, type: 3}
-  - ID: 63cwiartka
-    audioClip: {fileID: 8300000, guid: 31d4b87eedd082a40b2a4371e48827d8, type: 3}
-  - ID: 65cala
-    audioClip: {fileID: 8300000, guid: 491a3ba2235844a4ea4d202fee74450a, type: 3}
-  - ID: 65cwiartka
-    audioClip: {fileID: 8300000, guid: c2935f5df86d80f46a1399372fef5e4e, type: 3}
+  - ID: 10
+    audioClip: {fileID: 8300000, guid: 3bc220dafc4753a40910b57d5faa0fca, type: 3}
+  - ID: 20
+    audioClip: {fileID: 8300000, guid: dc57e8031b0f7fa44b0b55adcb615a0e, type: 3}
+  - ID: 21
+    audioClip: {fileID: 8300000, guid: 79e0a9111d79d0f498ed10c8b582980c, type: 3}
+  - ID: 23
+    audioClip: {fileID: 8300000, guid: f2d017076ea246b4b814bd8969e16baf, type: 3}
+  - ID: 24
+    audioClip: {fileID: 8300000, guid: bfb11db98daf07f4d9fef0b181cc1d43, type: 3}
+  - ID: 32
+    audioClip: {fileID: 8300000, guid: c03d3f1fd55ecb344a3deb4cc4cd2a59, type: 3}
+  - ID: 36
+    audioClip: {fileID: 8300000, guid: d5a11ed99fc97b24d9e5c03abb96ecd9, type: 3}
+  - ID: 46
+    audioClip: {fileID: 8300000, guid: d90d5bec99ea1ed449e07b43c29fc5df, type: 3}
+  - ID: 47
+    audioClip: {fileID: 8300000, guid: 83f32316039ea3d459af58bb383fa0b1, type: 3}
+  - ID: 50
+    audioClip: {fileID: 8300000, guid: 90cbdb668d6c05c4fae06f317e4702d1, type: 3}
+  - ID: 53
+    audioClip: {fileID: 8300000, guid: f37a89a5c1c9af94fbd4296c817e9f39, type: 3}
+  - ID: 54
+    audioClip: {fileID: 8300000, guid: c9f86ed355e9d4d4a9c95bb925ea356a, type: 3}
+  - ID: 64
+    audioClip: {fileID: 8300000, guid: 312bef6af53df074d90c3e86c07d6b18, type: 3}
   notes:
-  - noteType: 2
-    soundID: 53cwiartka
+  - noteType: 1
+    soundID: 21
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 537762543}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 3
-  - noteType: 2
-    soundID: 40cwiartka
+  - noteType: 1
+    soundID: 32
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
       type: 3}
-    path: {fileID: 122409460}
-    lineIndex: 0
-  - noteType: 2
-    soundID: 52cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 732331060}
+    path: {fileID: 0}
     lineIndex: 2
-  - noteType: 2
-    soundID: 50cwiartka
+  - noteType: 1
+    soundID: 21
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: d497b2322f3d8524b960e46a02e48d1b,
       type: 3}
-    path: {fileID: 122409460}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 32
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 0
-  - noteType: 2
-    soundID: 53cwiartka
+  - noteType: 1
+    soundID: 47
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
       type: 3}
-    path: {fileID: 537762543}
+    path: {fileID: 0}
     lineIndex: 3
-  - noteType: 2
-    soundID: 40cwiartka
+  - noteType: 1
+    soundID: 46
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 122409460}
-    lineIndex: 0
-  - noteType: 2
-    soundID: 52cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 732331060}
-    lineIndex: 2
-  - noteType: 2
-    soundID: 50cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 122409460}
-    lineIndex: 0
-  - noteType: 2
-    soundID: 40cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 122409460}
-    lineIndex: 0
-  - noteType: 2
-    soundID: 52cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 732331060}
-    lineIndex: 2
-  - noteType: 2
-    soundID: 60cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 122409460}
-    lineIndex: 0
-  - noteType: 2
-    soundID: 50cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 122409460}
-    lineIndex: 0
-  - noteType: 2
-    soundID: 53cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 537762543}
+    path: {fileID: 0}
     lineIndex: 3
-  - noteType: 2
-    soundID: 40cwiartka
+  - noteType: 1
+    soundID: 20
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
       type: 3}
-    path: {fileID: 122409460}
-    lineIndex: 0
-  - noteType: 2
-    soundID: 52cwiartka
-    spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
-      type: 3}
-    path: {fileID: 732331060}
+    path: {fileID: 0}
     lineIndex: 2
-  - noteType: 2
-    soundID: 50cwiartka
+  - noteType: 1
+    soundID: 47
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
       type: 3}
-    path: {fileID: 122409460}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 46
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 0
-  - noteType: 2
-    soundID: 53cwiartka
+  - noteType: 1
+    soundID: 21
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 20
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 537762543}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 32
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: d497b2322f3d8524b960e46a02e48d1b,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 21
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 3
-  - noteType: 2
-    soundID: 40cwiartka
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 32
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 47
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: d497b2322f3d8524b960e46a02e48d1b,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 46
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 122409460}
+    path: {fileID: 0}
     lineIndex: 0
-  - noteType: 2
-    soundID: 52cwiartka
+  - noteType: 1
+    soundID: 20
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
       type: 3}
-    path: {fileID: 732331060}
+    path: {fileID: 0}
     lineIndex: 2
-  - noteType: 2
-    soundID: 50cwiartka
+  - noteType: 1
+    soundID: 47
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 46
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 122409460}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 10
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 0
-  - noteType: 2
-    soundID: 42cwiartka
+  - noteType: 1
+    soundID: 23
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
       type: 3}
-    path: {fileID: 732331060}
+    path: {fileID: 0}
     lineIndex: 2
-  - noteType: 2
-    soundID: 30cwiartka
+  - noteType: 1
+    soundID: 20
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: d497b2322f3d8524b960e46a02e48d1b,
       type: 3}
-    path: {fileID: 122409460}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 10
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 23
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 0
-  - noteType: 2
-    soundID: 41cwiartka
+  - noteType: 1
+    soundID: 20
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 1788476407}
+    path: {fileID: 0}
     lineIndex: 1
-  - noteType: 2
-    soundID: 52cwiartka
+  - noteType: 1
+    soundID: 24
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
       type: 3}
-    path: {fileID: 732331060}
-    lineIndex: 2
-  - noteType: 2
-    soundID: 42cwiartka
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 36
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
       type: 3}
-    path: {fileID: 732331060}
-    lineIndex: 2
-  - noteType: 2
-    soundID: 30cwiartka
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 46
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
       type: 3}
-    path: {fileID: 122409460}
+    path: {fileID: 0}
     lineIndex: 0
-  - noteType: 2
-    soundID: 41cwiartka
+  - noteType: 1
+    soundID: 24
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
       type: 3}
-    path: {fileID: 1788476407}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 36
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 1
-  - noteType: 2
-    soundID: 52cwiartka
+  - noteType: 1
+    soundID: 46
     spawnTime: 0
-    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
       type: 3}
-    path: {fileID: 732331060}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 10
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: d497b2322f3d8524b960e46a02e48d1b,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 23
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 2
-  - noteType: 2
-    soundID: 61cwiartka
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 10
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 23
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 24
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 1788476407}
-    lineIndex: 1
-  - noteType: 2
-    soundID: 61cwiartka
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 36
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 46
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 24
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 36
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 1788476407}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 46
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 1
-  - noteType: 2
-    soundID: 61cwiartka
+  - noteType: 1
+    soundID: 21
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 20
     spawnTime: 0
     prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
       type: 3}
-    path: {fileID: 1788476407}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 32
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 21
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
     lineIndex: 1
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 32
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 47
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: d497b2322f3d8524b960e46a02e48d1b,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 46
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 47
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 46
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 21
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: d497b2322f3d8524b960e46a02e48d1b,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 32
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 06f14231f1ebc9c4abb4ad444cd2987f,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 21
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 26ce7908923237e48b3fabf6b35563e7,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 32
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: d497b2322f3d8524b960e46a02e48d1b,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 443d8be0a02f80442be2b7dd4fa0f2a1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  - noteType: 1
+    soundID: 47
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 2402b30748d67ba42a0d9fc1d20edd39,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 46
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 3
+  - noteType: 1
+    soundID: 20
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 1
+  - noteType: 1
+    soundID: 47
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: c279a19595ba8a84e96e63ac83a1ec15,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 0
+  - noteType: 1
+    soundID: 46
+    spawnTime: 0
+    prefab: {fileID: 3502685149264600060, guid: 6fafa70b6af8b7044aa5547a00e0a9b1,
+      type: 3}
+    path: {fileID: 0}
+    lineIndex: 2
+  paths:
+  - ID: 0
+    path: {fileID: 122409460}
+  - ID: 1
+    path: {fileID: 1788476407}
+  - ID: 2
+    path: {fileID: 732331060}
+  - ID: 3
+    path: {fileID: 537762543}
+  missParticle: {fileID: 2984068416935754328, guid: 57f74d8ca3abab44ea89d527ef30b0db,
+    type: 3}
+  hitParticle: {fileID: 8141954454072641041, guid: 9d7fb49ee603c364e9c02a504ee71c7b,
+    type: 3}
+  perfectParticle: {fileID: 3806630921247832475, guid: b9178cd2d111a7948afb4ea487dd84e3,
+    type: 3}
   perfectWindow: 0.5
   goodWindow: 0.9
   missWindow: 1
