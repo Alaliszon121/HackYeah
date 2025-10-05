@@ -344,7 +344,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 2bb241894d5ae8340b95e980f4c8f9e6,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: a8a9c56ebb7536544965ed0588ea5495, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1f2c038cbe802a4448e67142d5613d1e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2227,7 +2227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 2.683, y: 358.809, z: -1800.614}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.44725, y: 1}
-  m_AnchoredPosition: {x: 302, y: -5}
+  m_AnchoredPosition: {x: 302.00006, y: -5}
   m_SizeDelta: {x: 214.795, y: 349.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1487159050
@@ -2400,10 +2400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d6dc8cf650b3a44b4009be9c30c26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickSound: {fileID: 8300000, guid: ee39680f47f723746bdd51f99f2107d6, type: 3}
-  masterMixer: {fileID: 24100000, guid: 2bb241894d5ae8340b95e980f4c8f9e6, type: 2}
-  volumeParameter: MasterVolume
-  gameSceneID: 1
 --- !u!1 &1584017542
 GameObject:
   m_ObjectHideFlags: 0
