@@ -6915,10 +6915,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animators:
-  - {fileID: 282320221}
-  - {fileID: 1505895639}
-  - {fileID: 22990757}
-  - {fileID: 688683597}
+  - {fileID: 282320219}
+  - {fileID: 1505895637}
+  - {fileID: 22990755}
+  - {fileID: 688683595}
   animationName: Fly
 --- !u!4 &1117249583
 Transform:
