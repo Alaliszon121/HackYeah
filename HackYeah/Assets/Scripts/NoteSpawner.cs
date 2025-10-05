@@ -22,6 +22,13 @@ public struct NoteDef
     public int lineIndex;
 }
 
+[System.Serializable]
+public struct PathDef
+{
+    public int ID;
+    public CinemachineSmoothPath path;
+}
+
 public class NoteSpawner : MonoBehaviour
 {
     [Header("Song Settings")]
@@ -35,11 +42,32 @@ public class NoteSpawner : MonoBehaviour
     [Header("Notes")]
     public NoteDef[] notes;
 
+    [Header("Paths (IDs auto-assigned)")]
+    public PathDef[] paths;
+
+    [Header("Particles")]
+    public ParticleSystem missParticle;
+    public ParticleSystem hitParticle;
+    public ParticleSystem perfectParticle;
+
+    // how close to exact dsp time we require for scheduling fallback (tiny epsilon)
+    private const double dspEpsilon = 0.0005;
+
     private Dictionary<string, AudioClip> soundMap;
-    private List<(CinemachineDollyCart cart, NoteDef def)> activeNotes = new();
+
+    // internal representation of a spawned note
+    private class NoteInstance
+    {
+        public CinemachineDollyCart cart;
+        public NoteDef def;
+        public bool consumed;         // was hit (good/perfect) or miss-handled
+        public bool soundScheduled;   // if we already scheduled or played its sound
+    }
+
+    private List<NoteInstance> activeNotes = new();
 
     // One hittable note per line
-    private Dictionary<int, (CinemachineDollyCart cart, NoteDef def)?> currentHittable = new();
+    private Dictionary<int, NoteInstance> currentHittable = new();
 
     private double songStartDspTime;
 
@@ -49,42 +77,52 @@ public class NoteSpawner : MonoBehaviour
     public float missWindow = 0.3f;
 
     public HitAnimationManager hitAnimationManager;
+
     void Start()
     {
-        // Prepare sound dictionary
         soundMap = new Dictionary<string, AudioClip>();
         foreach (var s in sounds)
-            soundMap[s.ID] = s.audioClip;
+            if (!string.IsNullOrEmpty(s.ID) && s.audioClip != null)
+                soundMap[s.ID] = s.audioClip;
 
-        // Precompute spawn times
+        // Compute spawn times
         double beatDuration = 60.0 / BPM;
         double currentTime = startOffset;
-
         for (int i = 0; i < notes.Length; i++)
         {
+            notes[i].path = paths[notes[i].lineIndex].path;
             double multiplier = NoteTypeToBeats(notes[i].noteType);
             notes[i].spawnTime = currentTime;
             currentTime += beatDuration * multiplier;
         }
 
-        // Spawn all notes immediately
+        // Spawn note carts and create NoteInstance for each note
         for (int i = 0; i < notes.Length; i++)
         {
-            if (notes[i].prefab != null && notes[i].path != null)
+            var n = notes[i];
+            if (n.prefab != null && n.path != null)
             {
-                var clone = Instantiate(notes[i].prefab, Vector3.zero, Quaternion.identity);
-                clone.m_Path = notes[i].path;
-                clone.m_Position = (float)notes[i].spawnTime / 2f;
+                var clone = Instantiate(n.prefab, Vector3.zero, Quaternion.identity);
+                clone.m_Path = n.path;
+                clone.m_Position = (float)n.spawnTime / 2f;
 
-                activeNotes.Add((clone, notes[i]));
+                var ni = new NoteInstance()
+                {
+                    cart = clone,
+                    def = n,
+                    consumed = false,
+                    soundScheduled = false
+                };
+                activeNotes.Add(ni);
             }
         }
 
-        // Init per-line state
-        foreach (var note in notes)
-            currentHittable[note.lineIndex] = null;
+        // Init per-line hittable dictionary
+        foreach (var n in notes)
+            if (!currentHittable.ContainsKey(n.lineIndex))
+                currentHittable[n.lineIndex] = null;
 
-        // Start song
+        // Start music
         songStartDspTime = AudioSettings.dspTime;
         musicSource.PlayScheduled(songStartDspTime);
     }
@@ -93,43 +131,42 @@ public class NoteSpawner : MonoBehaviour
     {
         double songTime = AudioSettings.dspTime - songStartDspTime;
 
-        // Update hittable notes per line
-        foreach (var lineIndex in currentHittable.Keys)
+        // Update hittable notes
+        List<int> keys = new List<int>(currentHittable.Keys);
+        foreach (var lineIndex in keys)
         {
-            // If no current hittable note, try to find one
             if (currentHittable[lineIndex] == null)
             {
-                foreach (var (cart, def) in activeNotes)
+                foreach (var ni in activeNotes)
                 {
-                    if (def.lineIndex != lineIndex) continue;
-
-                    double delta = def.spawnTime - songTime;
+                    if (ni.def.lineIndex != lineIndex) continue;
+                    if (ni.consumed) continue;
+                    double delta = ni.def.spawnTime - songTime;
                     if (Mathf.Abs((float)delta) <= missWindow)
                     {
-                        currentHittable[lineIndex] = (cart, def);
+                        currentHittable[lineIndex] = ni;
                         Debug.Log($"[Line {lineIndex}] Note became hittable at time {songTime:F3}");
                         break;
                     }
                 }
             }
 
-            // If there is a hittable note, log it while active
             if (currentHittable[lineIndex] != null)
             {
-                var (cart, def) = currentHittable[lineIndex].Value;
-                double delta = songTime - def.spawnTime;
+                var ni = currentHittable[lineIndex];
+                double delta = songTime - ni.def.spawnTime;
 
-                if (Mathf.Abs((float)delta) <= missWindow)
+                if (delta > missWindow)
                 {
-                    Debug.Log($"[Line {lineIndex}] Hittable note active (Δ={delta:F3}) at frame {Time.frameCount}");
-                }
-                else if (delta > missWindow)
-                {
-                    // Missed
-                    hitAnimationManager.RegisterHit();
+                    // Miss
+                    ni.consumed = true;
                     Debug.Log($"[Line {lineIndex}] Miss (note expired at time {songTime:F3})");
-                    Destroy(cart.gameObject);
-                    activeNotes.RemoveAll(n => n.cart == cart);
+                    hitAnimationManager?.RegisterHit();
+
+                    SpawnParticle(missParticle, ni.cart.transform.position);
+
+                    if (ni.cart != null) Destroy(ni.cart.gameObject);
+                    activeNotes.Remove(ni);
                     currentHittable[lineIndex] = null;
                 }
             }
@@ -153,34 +190,73 @@ public class NoteSpawner : MonoBehaviour
     {
         double songTime = AudioSettings.dspTime - songStartDspTime;
 
-        if (currentHittable[lineIndex] != null)
+        if (!currentHittable.ContainsKey(lineIndex) || currentHittable[lineIndex] == null)
         {
-            var (cart, def) = currentHittable[lineIndex].Value;
-            double delta = Mathf.Abs((float)(def.spawnTime - songTime));
+            Debug.Log($"[Line {lineIndex}] Input ignored (no note in window)");
+            return;
+        }
 
-            if (delta <= perfectWindow)
-                Debug.Log($"[Line {lineIndex}] Perfect hit!");
-            else if (delta <= goodWindow)
-                Debug.Log($"[Line {lineIndex}] Good hit!");
-            else { 
-                Debug.Log($"[Line {lineIndex}] Late/Early hit (Δ={delta:F3})");
-                
-            }
+        var ni = currentHittable[lineIndex];
+        double deltaAbs = System.Math.Abs(ni.def.spawnTime - songTime);
 
-            // Play sound if hit in good/perfect window
-            if (delta <= goodWindow && soundMap.TryGetValue(def.soundID, out var clip))
-                AudioSource.PlayClipAtPoint(clip, Vector3.zero);
+        bool shouldPlaySound = false;
 
-            // Remove note
-            Destroy(cart.gameObject);
-            activeNotes.RemoveAll(n => n.cart == cart);
-            currentHittable[lineIndex] = null;
+        if (deltaAbs <= perfectWindow)
+        {
+            Debug.Log($"[Line {lineIndex}] Perfect hit!");
+            shouldPlaySound = true;
+            SpawnParticle(perfectParticle, ni.cart.transform.position);
+            SpawnParticle(hitParticle, ni.cart.transform.position); // also play hit
+        }
+        else if (deltaAbs <= goodWindow)
+        {
+            Debug.Log($"[Line {lineIndex}] Good hit!");
+            shouldPlaySound = true;
+            SpawnParticle(hitParticle, ni.cart.transform.position);
         }
         else
         {
-            // IGNORE input when no note is hittable → no miss
-            Debug.Log($"[Line {lineIndex}] Input ignored (no note in window)");
+            Debug.Log($"[Line {lineIndex}] Late/Early hit (Δ={deltaAbs:F3})");
+            // no particles on bad hit
         }
+
+        if (shouldPlaySound && !ni.soundScheduled)
+        {
+            if (soundMap.TryGetValue(ni.def.soundID, out var clip) && clip != null)
+            {
+                double scheduledDspTime = songStartDspTime + ni.def.spawnTime;
+                if (scheduledDspTime > AudioSettings.dspTime + dspEpsilon)
+                {
+                    GameObject audioGO = new GameObject($"NoteAudio_{ni.def.soundID}_{ni.def.spawnTime:F3}");
+                    audioGO.transform.parent = this.transform;
+                    var a = audioGO.AddComponent<AudioSource>();
+                    a.clip = clip;
+                    a.playOnAwake = false;
+                    a.spatialBlend = 0f;
+                    a.loop = false;
+                    a.PlayScheduled(scheduledDspTime);
+                    Destroy(audioGO, (float)clip.length + 1.0f);
+                }
+                else
+                {
+                    AudioSource.PlayClipAtPoint(clip, ni.cart.transform.position);
+                }
+                ni.soundScheduled = true;
+            }
+        }
+
+        ni.consumed = true;
+        if (ni.cart != null) Destroy(ni.cart.gameObject);
+
+        currentHittable[lineIndex] = null;
+        activeNotes.Remove(ni);
     }
 
+    private void SpawnParticle(ParticleSystem prefab, Vector3 pos)
+    {
+        if (prefab == null) return;
+        var ps = Instantiate(prefab, pos, Quaternion.identity);
+        ps.Play();
+        Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
+    }
 }
