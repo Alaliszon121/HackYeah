@@ -26,7 +26,7 @@ public class DspTimeSpawner : MonoBehaviour
         while (currentIndex < spawns.Count)
         {
             TimedSpawn spawn = spawns[currentIndex];
-
+            spawn.spawnTime += 10f;
             if (spawn.prefab == null)
             {
                 Debug.LogWarning($"Spawn {currentIndex} has no prefab assigned!");
