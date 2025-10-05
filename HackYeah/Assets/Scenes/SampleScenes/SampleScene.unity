@@ -775,7 +775,7 @@ MonoBehaviour:
     width: 0.01
   m_Looped: 0
   m_Waypoints:
-  - position: {x: -5.196864, y: -4.07366, z: -2.009153}
+  - position: {x: -5.0281935, y: -4.07366, z: -2.2593408}
     roll: 0
   - position: {x: -6.858783, y: -4.04663, z: 0.58880234}
     roll: 0
@@ -1558,7 +1558,6 @@ MonoBehaviour:
   animationName: Sit
   minOffset: 0
   maxOffset: 7
-  allowMirror: 0
 --- !u!1 &199487419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,8 +2492,8 @@ MonoBehaviour:
     type: 3}
   perfectParticle: {fileID: 3806630921247832475, guid: b9178cd2d111a7948afb4ea487dd84e3,
     type: 3}
-  perfectWindow: 0.5
-  goodWindow: 0.9
+  perfectWindow: 0.1
+  goodWindow: 0.35
   missWindow: 1
   hitAnimationManager: {fileID: 1985325702}
 --- !u!82 &289109148
@@ -3982,7 +3981,7 @@ MonoBehaviour:
     width: 0.01
   m_Looped: 0
   m_Waypoints:
-  - position: {x: -4.9755716, y: -4.0770464, z: -1.8755655}
+  - position: {x: -4.8184147, y: -4.0770464, z: -2.1006017}
     roll: 0
   - position: {x: -6.828981, y: -4.061571, z: 0.9939194}
     roll: 0
@@ -5321,7 +5320,6 @@ MonoBehaviour:
   animationName: Sit
   minOffset: 0
   maxOffset: 7
-  allowMirror: 0
 --- !u!1 &698943811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5524,7 +5522,7 @@ MonoBehaviour:
     width: 0.01
   m_Looped: 0
   m_Waypoints:
-  - position: {x: -4.9841685, y: -4.0770464, z: -1.8899064}
+  - position: {x: -4.8234777, y: -4.0770464, z: -2.1366892}
     roll: 0
   - position: {x: -6.842267, y: -4.061571, z: 1.0070114}
     roll: 0
@@ -5552,6 +5550,134 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.318732, y: 6.4464884, z: -5.4452486}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &766550578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766550580}
+  - component: {fileID: 766550579}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &766550579
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766550578}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &766550580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766550578}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.6742697, y: 5.2709603, z: -9.61994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12248,7 +12374,6 @@ MonoBehaviour:
   animationName: Sit
   minOffset: 0
   maxOffset: 7
-  allowMirror: 1
 --- !u!1 &1198374776
 GameObject:
   m_ObjectHideFlags: 0
@@ -19130,7 +19255,7 @@ MonoBehaviour:
     width: 0.01
   m_Looped: 0
   m_Waypoints:
-  - position: {x: -5.1018896, y: -4.0770464, z: -1.9391074}
+  - position: {x: -4.9129434, y: -4.0770464, z: -2.2197251}
     roll: 0
   - position: {x: -6.961337, y: -4.061571, z: 0.93485975}
     roll: 0
@@ -19882,7 +20007,6 @@ MonoBehaviour:
   animationName: Sit
   minOffset: 0
   maxOffset: 7
-  allowMirror: 1
 --- !u!1 &1963408201
 GameObject:
   m_ObjectHideFlags: 0
@@ -20079,11 +20203,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animators:
-  - {fileID: 190245707}
-  - {fileID: 690289195}
-  - {fileID: 1190848009}
-  - {fileID: 1958044533}
+  - {fileID: 690289194}
+  - {fileID: 190245706}
+  - {fileID: 1190848008}
+  - {fileID: 1958044532}
   animationName: Fly
+  globalVolume: {fileID: 832575518}
+  saturationStep: -20
+  lerpSpeed: 1.5
 --- !u!4 &1985325703
 Transform:
   m_ObjectHideFlags: 0
@@ -20597,3 +20724,4 @@ SceneRoots:
   - {fileID: 1190848007}
   - {fileID: 1958044531}
   - {fileID: 1985325703}
+  - {fileID: 766550580}
